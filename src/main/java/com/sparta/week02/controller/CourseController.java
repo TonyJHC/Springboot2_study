@@ -47,6 +47,7 @@ public class CourseController {
     public Long updateCourse(@PathVariable Long id, @RequestBody CourseRequestDto requestDto) {  // @PathVariable --> 클라이언트로부터 수정할 유동적인 값을 받으면 자동으로 Long id에 넣어준다.
         return courseService.update(id, requestDto);
     }
+    
 
     @DeleteMapping("/api/courses/{id}")
     public Long deleteCourse(@PathVariable Long id) {

@@ -2,12 +2,14 @@ package com.sparta.week02.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Getter
-@NoArgsConstructor
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Person extends Timestamped {
 
     @Id
@@ -26,5 +28,18 @@ public class Person extends Timestamped {
     @Column(nullable = false)
     private String address;
 
+    public Person(PersonRequestDto personRequestDto){
+        this.name = personRequestDto.getName();
+        this.address = personRequestDto.getAddress();
+        this.age = personRequestDto.getAge();
+        this.job = personRequestDto.getJob();
+    }
+
+    public void update(PersonRequestDto personRequestDto){
+        this.job = personRequestDto.getJob();
+        this.age = personRequestDto.getAge();
+        this.address = personRequestDto.getAddress();
+        this.name = personRequestDto.getName();
+    }
 
 }
