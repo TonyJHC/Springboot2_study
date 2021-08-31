@@ -27,5 +27,4 @@ public class Person extends Timestamped {
     private String address;
 
 
-
 }

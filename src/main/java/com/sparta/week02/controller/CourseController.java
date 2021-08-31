@@ -13,7 +13,13 @@ import java.util.List;
 @RestController // json으로 넘겨줘야함
 public class CourseController {
 
+    // Controller에서 client로 부터 request를 받고 (dto 형태로 )
+    // dto에 있는 정보를 class 에 저장
+    // 실제 db에 반영
+    // 이때 실제 db에 반영하기 위해 필수적으로 Repository가 존재해야되므로 final 선언
     private final CourseRepository courseRepository; // 꼭 필요하니까 final --> 필요한 생성자를 자동으로 만들어줌 단 ! @RequiredArgsConstructor 롬복 필수
+
+    // Controller에서 받은 요청등을 update등을 하려면 Service단에서 처리를 해야되기 때문에 필수적 --> final선언
 
     private final CourseService courseService;
 
