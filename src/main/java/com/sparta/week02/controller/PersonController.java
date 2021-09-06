@@ -31,16 +31,7 @@ public class PersonController {
 
     @GetMapping("/api/persons/{id}")
     public Optional<Person> getPersonOne(@PathVariable Long id) {
-      //  Person person = personService.findbyId(id);
-        //Person person2 = personRepository.getById(id);
-
         Optional<Person> person = personRepository.findById(id);
-//        Person person2 = new Person();
-//        List<Person> pList = personRepository.findAll();
-//        for(int i = 0; i < pList.size(); i++){
-//            if(pList.get(i).getId() == id)
-//                person = pList.get(i);
-//        }
         return person;
     }
 
