@@ -22,4 +22,12 @@ public class PersonService {
         person1.update(personRequestDto);
         return person1.getId();
     }
+
+    @Transactional
+    public Person findbyId(Long id){
+        Person person1 = personRepository.getById(id);
+        // 유효성 검사 하는 부분 만들기
+
+        return person1;
+    }
 }

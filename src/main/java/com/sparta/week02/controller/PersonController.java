@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,6 +29,21 @@ public class PersonController {
         return personRepository.findAll();
     }
 
+    @GetMapping("/api/persons/{id}")
+    public Optional<Person> getPersonOne(@PathVariable Long id) {
+      //  Person person = personService.findbyId(id);
+        //Person person2 = personRepository.getById(id);
+
+        Optional<Person> person = personRepository.findById(id);
+//        Person person2 = new Person();
+//        List<Person> pList = personRepository.findAll();
+//        for(int i = 0; i < pList.size(); i++){
+//            if(pList.get(i).getId() == id)
+//                person = pList.get(i);
+//        }
+        return person;
+    }
+
     @DeleteMapping("/api/persons/{id}")
     public Long deletePerson(@PathVariable Long id) {
         personRepository.deleteById(id);
@@ -39,4 +55,5 @@ public class PersonController {
         personService.update(id, personRequestDto);
         return id;
     }
+
 }
