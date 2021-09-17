@@ -32,6 +32,7 @@ public class PersonController {
     @GetMapping("/api/persons/{id}")
     public Optional<Person> getPersonOne(@PathVariable Long id) {
         Optional<Person> person = personRepository.findById(id);
+
         return person;
     }
 
